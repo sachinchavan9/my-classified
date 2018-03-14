@@ -1,0 +1,25 @@
+{% extends 'advert/base.html' %}
+{% block title %}
+    Home
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+            </div>
+            <div class="col">
+                <div class="row">
+                    {% for state in states %}
+                        <ul>
+                            <h5 class="state">{{ state | title }}</h5>
+                            {% for city in state.get_cities %}
+                                <li><a href="{{ city.city_name | slugify }}">{{ city.city_name | title }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+@import url('https://fonts.googleapis.com/css?family=Amiri:700');
+
+body {
+    font-size: small;
+}
+
+.logo {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: green;
+}
+
+.state {
+    font-family: 'Amiri', serif;
+}
+
+ul {
+    list-style: none;
+}
+
+.img-fluid {
+    max-height: 400px;
+}
+
+.breadcrumb {
+    border-radius: 0;
+}

@@ -1,0 +1,27 @@
+{% extends 'advert/base.html' %}
+{% load humanize %}
+{% block title %}
+    {{ sub_cat_add.category }}
+{% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item" aria-current="page"><a href="{% url 'home' %}">Home</a></li>
+    <li class="breadcrumb-item" aria-current="page">{{ sub_cat_add.category.city.state | title }}</li>
+    <li class="breadcrumb-item" aria-current="page"><a
+            href="{% url 'city_view' sub_cat_add.category.city.city_name %}">{{ sub_cat_add.category.city | title }}</a></li>
+    <li class="breadcrumb-item" aria-current="page">{{ sub_cat_add.category | title }}</li>
+    <li class="breadcrumb-item active" aria-current="page">{{ sub_cat_add.sub_category_name | title }}</li>
+{% endblock %}
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <ul>
+                {% for foo in sub_cat_add.get_post_add %}
+                    <li>
+                        <a href="{{ foo.add_title | slugify }}/{{ foo.pk }}">{{ foo.add_title | title }}</a> <span
+                            class="text-muted small"><em>{{ foo.posted_date | naturaltime }}</em></span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
