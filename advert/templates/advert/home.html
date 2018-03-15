@@ -11,10 +11,11 @@
                 <div class="row">
                     {% for state in states %}
                         <div class="col-md-2">
-                            <ul>
+                            <ul class="list-inline">
                                 <h5 class="state">{{ state | title }}</h5>
                                 {% for city in state.get_cities %}
-                                    <li><a href="{{ city.city_name | slugify }}">{{ city.city_name | title }}</a>
+                                    <li class="list-inline-item"><a
+                                            href="{{ city.city_name | slugify }}">{{ city.city_name | title }}</a>
                                     </li>
                                 {% endfor %}
                             </ul>
