@@ -11,7 +11,7 @@
                 <div class="row">
                     {% for state in states %}
                         <div class="col-md-2">
-                            <ul class="list-inline">
+                            <ul class="list-inline home_ul">
                                 <h5 class="state">{{ state | title }}</h5>
                                 {% for city in state.get_cities %}
                                     <li class="list-inline-item"><a

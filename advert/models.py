@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from django.contrib.auth.models import User
 
 from django.db import models
 
@@ -57,3 +58,18 @@ class PostAdd(models.Model):
 
     def __str__(self):
         return self.add_title
+
+
+class MyProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    state = models.ForeignKey(State, related_name='User_state', null=True, blank=True)
+    city = models.ForeignKey(City, related_name='User_city', null=True, blank=True)
+    birth_date = models.DateField(null=True, blank=True)
+    mobile_number = models.CharField(max_length=20, null=True, blank=True)
+    my_ad = models.ForeignKey(PostAdd, related_name='my_add', null=True, blank=True)
+
+    def __str__(self):
+        return str(self.user.username)
+
+    def my_posting(self):
+        return self.my_ad.objects.all()
