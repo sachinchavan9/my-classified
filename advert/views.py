@@ -11,7 +11,8 @@ def home(request):
 
 
 def district_view(request, slug):
-    slug = str(slug).replace("-", " ")
+    # slug = str(slug).replace("-", " ")
+    # print(slug)
     cities = get_object_or_404(City, city_name=slug)
     cat = Category.objects.filter(city=cities.pk)
     return render(request, 'advert/city_view.html', {'cat': cat, 'cities': cities})

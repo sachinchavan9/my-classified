@@ -14,12 +14,15 @@
                             <h5 class="state">{{ state | title }}</h5>
                             <hr>
                             {% for city in state.get_cities %}
+                                {#                                <li class="list-inline-item"><a#}
+                                {#                                        href="{{ city.city_name | slugify }}">{{ city.city_name | title }}</a>#}
+                                {#                                </li>#}
                                 <li class="list-inline-item"><a
-                                        href="{{ city.city_name | slugify }}">{{ city.city_name | title }}</a>
+                                        href="{% url 'city_view' city.city_name %}">{{ city.city_name | title }}</a>
                                 </li>
                             {% endfor %}
                             <hr>
-                         <br><br>
+                            <br><br>
                         {% endfor %}
                     </ul>
                 </div>

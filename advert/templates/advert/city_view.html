@@ -20,7 +20,7 @@
                             <hr>
                             {% for sub_category in foo.get_sub_categories %}
                                 <li class="list-inline-item">
-                                    <a href="{{ sub_category.pk }}/{{ sub_category.sub_category_name | slugify }}">{{ sub_category.sub_category_name | title }}</a>
+                                    <a href="{% url 'add_view' sub_category.pk sub_category.sub_category_name %}">{{ sub_category.sub_category_name | title }}</a>
                                 </li>
                             {% endfor %}
                             <hr>

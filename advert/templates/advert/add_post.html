@@ -18,15 +18,15 @@
             <div class="col-md-2">
             </div>
             <div class="col-md">
-                    <ul class="ad_ul">
-                        {% for foo in sub_cat_add.get_post_add %}
-                            <li>
-                                <a href="{{ foo.add_title | slugify }}/{{ foo.pk }}">{{ foo.add_title | title }}</a>
-                                <span
-                                        class="text-muted small"><em>{{ foo.posted_date | naturaltime }}</em></span>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                <ul class="ad_ul">
+                    {% for foo in sub_cat_add.get_post_add %}
+                        <li>
+                            <a href="{% url 'advert' foo.add_title foo.pk %}">{{ foo.add_title }}</a>
+                            <span
+                                    class="text-muted small"><em>{{ foo.posted_date | naturaltime }}</em></span>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
     </div>

@@ -20,7 +20,7 @@ class City(models.Model):
     state = models.ForeignKey(State, related_name='State_p')
 
     def __str__(self):
-        return self.city_name
+        return self.city_name.replace(" ", "-")
 
     def get_categories(self):
         return self.City_p.all()
